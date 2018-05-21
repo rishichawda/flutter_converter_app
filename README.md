@@ -1,6 +1,6 @@
 # flutter_converter_app
 
-A new Flutter project.
+Personal repository for learning flutter.
 
 ## Getting Started
 
