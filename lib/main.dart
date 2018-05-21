@@ -86,6 +86,8 @@ class converterToolsState extends State<converterTools> {
 
   @override
   Widget build(BuildContext context) {
+
+    assert(debugCheckHasMaterial(context));
   
     return new GridView.count(
       primary: false,
@@ -94,38 +96,54 @@ class converterToolsState extends State<converterTools> {
       crossAxisSpacing: 11.0,
       crossAxisCount: 2,
       children: <Widget>[
-        new GestureDetector(
-                onTap: weight_converter,
-                child: new Card(
-                          child: new Center(
-                            child: new Text('Weight')
-                          )
+                    new Card(
+                      child: new InkResponse(
+                        containedInkWell: true,
+                        radius: 2500.0,
+                        splashColor: Colors.lightBlue[200],
+                        enableFeedback: true,
+                        onTap: weight_converter,
+                        child: new Center(
+                          child: new Text('Weight')
+                        )
                       )
-                ),
-                new GestureDetector(
-                onTap: length_converter,
-                child: new Card(
-                          child: new Center(
-                            child: new Text('Length')
-                          )
+                    ),
+                    new Card(
+                      child: new InkResponse(
+                        containedInkWell: true,
+                        radius: 2500.0,
+                        splashColor: Colors.lightBlue[200],
+                        enableFeedback: true,
+                        onTap: length_converter,
+                        child: new Center(
+                          child: new Text('Length')
+                        )
                       )
-                ),
-                new GestureDetector(
-                onTap: currency_converter,
-                child: new Card(
-                          child: new Center(
-                            child: new Text('Currency')
-                          )
+                    ),
+                    new Card(
+                      child: new InkResponse(
+                        containedInkWell: true,
+                        radius: 2500.0,
+                        splashColor: Colors.lightBlue[200],
+                        enableFeedback: true,
+                        onTap: currency_converter,
+                        child: new Center(
+                          child: new Text('Currency')
+                        )
                       )
-                ),
-                new GestureDetector(
-                onTap: temperature_converter,
-                child: new Card(
-                          child: new Center(
-                            child: new Text('Temperature')
-                          )
+                    ),
+                    new Card(
+                      child: new InkResponse(
+                        containedInkWell: true,
+                        radius: 2500.0,
+                        splashColor: Colors.lightBlue[200],
+                        enableFeedback: true,
+                        onTap: temperature_converter,
+                        child: new Center(
+                          child: new Text('Temperature')
+                        )
                       )
-                ),
+                    ),
       ]
     );
   }
