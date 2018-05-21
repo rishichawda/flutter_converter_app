@@ -6,55 +6,128 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Convertor App',
+      title: 'converter App',
       home: new Scaffold(
         appBar: new AppBar(
-           title: new Text('Convertor'),
+           title: new Text('Converter'),
           ),
           body: new Container(
             decoration: new BoxDecoration(
             ),
             padding: EdgeInsets.all(25.0),
-            child: new ConvertorTools()
+            child: new converterTools()
           ),
         )
       );
   }
 }
 
-class ConvertorTools extends StatefulWidget {
+class converterTools extends StatefulWidget {
 
   @override
-    createState() => new ConvertorToolsState();
+    createState() => new converterToolsState();
     }
 
-class ConvertorToolsState extends State<ConvertorTools> {
+class converterToolsState extends State<converterTools> {
 
-final _tools_list = <Widget>[];
-final _tools_title = ['Weight', 'Length', 'Currency'];
 
+ void weight_converter(){
+      Navigator.of(context).push(
+      new MaterialPageRoute(
+        builder: (context) {
+          return new Scaffold(
+            appBar: new AppBar(
+              title: new Text('Convert Weight'),
+            ),
+          );
+        }
+      )
+    );
+  }
+ void length_converter(){
+      Navigator.of(context).push(
+      new MaterialPageRoute(
+        builder: (context) {
+          return new Scaffold(
+            appBar: new AppBar(
+              title: new Text('Convert Length'),
+            ),
+          );
+        }
+      )
+    );
+  }
+ void currency_converter(){
+      Navigator.of(context).push(
+      new MaterialPageRoute(
+        builder: (context) {
+          return new Scaffold(
+            appBar: new AppBar(
+              title: new Text('Convert Currency'),
+            ),
+          );
+        }
+      )
+    );
+  }
+ void temperature_converter(){
+      Navigator.of(context).push(
+      new MaterialPageRoute(
+        builder: (context) {
+          return new Scaffold(
+            appBar: new AppBar(
+              title: new Text('Convert Temperature'),
+            ),
+          );
+        }
+      )
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-
-  for (var i = 0; i < _tools_title.length; i++) {
-    var tool = new Card(
-                child: new Center(
-                  child: new Text(
-                    _tools_title[i]
-                  )
-                )
-              );
-    _tools_list.add(tool);
-
-  }
   
     return new GridView.count(
       primary: false,
       padding: const EdgeInsets.all(20.0),
-      crossAxisSpacing: 10.0,
+      mainAxisSpacing: 11.0,
+      crossAxisSpacing: 11.0,
       crossAxisCount: 2,
-      children: _tools_list
+      children: <Widget>[
+        new GestureDetector(
+                onTap: weight_converter,
+                child: new Card(
+                          child: new Center(
+                            child: new Text('Weight')
+                          )
+                      )
+                ),
+                new GestureDetector(
+                onTap: length_converter,
+                child: new Card(
+                          child: new Center(
+                            child: new Text('Length')
+                          )
+                      )
+                ),
+                new GestureDetector(
+                onTap: currency_converter,
+                child: new Card(
+                          child: new Center(
+                            child: new Text('Currency')
+                          )
+                      )
+                ),
+                new GestureDetector(
+                onTap: temperature_converter,
+                child: new Card(
+                          child: new Center(
+                            child: new Text('Temperature')
+                          )
+                      )
+                ),
+      ]
     );
   }
+
 }
